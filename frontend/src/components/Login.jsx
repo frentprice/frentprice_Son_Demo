@@ -30,14 +30,14 @@ const Login = ({ setShowLogin, myStorage, setCurrentUser }) => {
 		<div className="loginContainer">
 			<div className="logo">
 				<Room />
-				MillePin
+				FRENTPRICE
 			</div>
 			<form onSubmit={handleSubmit}>
 				<input type="text" placeholder="username" ref={nameRef} />
 				<input type="password" placeholder="password" ref={passwordRef} />
 				<button className="registerBtn">Login</button>
 
-				{error && <span className="failure">Something went wrong!</span>}
+				{error && <span className="failure">Hatali giriş yaptiniz!</span>}
 			</form>
 			<Cancel className="loginCancel" onClick={() => setShowLogin(false)} />
 		</div>

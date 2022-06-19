@@ -11,7 +11,22 @@ const PinSchema = new mongoose.Schema(
 			required: true,
 			min: 3,
 		},
-		desc: {
+		desc3: {
+			type: String,
+			required: true,
+			min: 3,
+		},
+		desc2: {
+			type: String,
+			required: true,
+			min: 3,
+		},
+		desc1: {
+			type: String,
+			required: true,
+			min: 3,
+		},
+		desc0: {
 			type: String,
 			required: true,
 			min: 3,
