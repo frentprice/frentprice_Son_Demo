@@ -32,7 +32,7 @@ const Register = ({ setShowRegister }) => {
 		<div className="registerContainer">
 			<div className="logo">
 				<Room />
-				MillePin
+				FRENTPRICE
 			</div>
 			<form onSubmit={handleSubmit}>
 				<input type="text" placeholder="username" ref={nameRef} />
@@ -40,9 +40,9 @@ const Register = ({ setShowRegister }) => {
 				<input type="password" placeholder="password" ref={passwordRef} />
 				<button className="registerBtn">Register</button>
 				{success && (
-					<span className="success">Successfull. You can login now!</span>
+					<span className="success">Kayıt Oldunuz!</span>
 				)}
-				{error && <span className="failure">Something went wrong!</span>}
+				{error && <span className="failure">Hata oluştu!</span>}
 			</form>
 			<Cancel
 				className="registerCancel"

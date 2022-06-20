@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const app = express();
 const userRoute = require("./routes/users");
 const pinRoute = require("./routes/pins");
+const favoriRoute = require("./routes/favori");
 
 dotenv.config();
 
@@ -21,6 +22,7 @@ mongoose
 
 app.use("/api/users", userRoute);
 app.use("/api/pins", pinRoute);
+app.use("/api/favori", favoriRoute);
 
 app.listen(8800, () => {
 	console.log("Backend server is running");
