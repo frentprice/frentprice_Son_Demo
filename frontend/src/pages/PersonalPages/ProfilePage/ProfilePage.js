@@ -36,7 +36,7 @@ export default function ProfilePage() {
           //   style={{ float: "right", }}
           >
             <Dropdown.Toggle variant="primary" id="dropdown-basic">
-              {currentUser}
+              {{currentUser}}
             </Dropdown.Toggle>
             <Dropdown.Menu>
               <Dropdown.Item href="/profile">Profil</Dropdown.Item>
@@ -84,6 +84,7 @@ export default function ProfilePage() {
               }}
             >
               <div>
+              <div>
                 <FontAwesomeIcon icon={faUserCircle} size={"5x"} />
                 <span>Kullanıcı Adı Soyadı</span>
                 <div>
@@ -117,7 +118,8 @@ export default function ProfilePage() {
               </Link>
             </div>
           </div>
-        </div>
+          </div>
+        
         <div class="col-md-8">
           <h2 style={{ textAlign: "center", fontWeight: "bold" }}>
             Üyelik Bigileri
@@ -149,6 +151,7 @@ export default function ProfilePage() {
               </label>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </div>
