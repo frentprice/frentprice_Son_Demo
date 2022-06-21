@@ -8,10 +8,11 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Dropdown } from "react-bootstrap";
-//import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-//import ProfilePage from './pages/PersonalPages/ProfilePage/ProfilePage';
-import FavoritePage from "./pages/favori";
-import { Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ProfilePage from "./pages/PersonalPages/ProfilePage/ProfilePage";
+import FavoritePage from "./pages/PersonalPages/FavoritePages/FavoritePage";
+import PasswordPage from "./pages/PersonalPages/PasswordPage/PasswordPage";
+//import { Link } from "react-router-dom";
 
 function App() {
   const myStorage = window.localStorage;
@@ -92,6 +93,15 @@ function App() {
 
   return (
     <div className="App" s>
+      <Router>
+        <Routes>
+
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/favori" element={<FavoritePage />} />
+          <Route path="/password" element={<PasswordPage />} />
+        </Routes>
+      </Router>
+
       {currentUser ? (
         <div className="buttons">
           <Dropdown
@@ -102,8 +112,7 @@ function App() {
             </Dropdown.Toggle>
             <Dropdown.Menu>
               <Dropdown.Item href="/profile">Profil</Dropdown.Item>
-              <Dropdown.Item href="./FavoritePage"> <FavoritePage>Favorilerim</FavoritePage>
-              </Dropdown.Item>
+              <Dropdown.Item href="/favori">Favorilerim</Dropdown.Item>
               <Dropdown.Item href="/password">Şifre Değiştir</Dropdown.Item>
               <Dropdown.Divider />
               <Dropdown.Item href="/" onClick={handleLogout}>
