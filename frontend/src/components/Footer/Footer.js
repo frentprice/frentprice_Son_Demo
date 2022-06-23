@@ -8,7 +8,7 @@ import logo from "../../assets/logo.jpeg";
 
 function Footer1() {
   return (
-    <div className='main-footer ' style={{marginTop:"200px"}}>
+    <div className='main-footer ' style={{marginTop:"370px"}}>
         <div className='container mt-5' style={{width:"100%"}}>
             <div className='row'>
                 
