@@ -11,7 +11,7 @@ import { Dropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logo from '../../assets/logo.jpeg';
 
-export default function MapPage({ currentUser, setCurrentUser, handleLogout, myStorage,showRegister,setShowRegister, showLogin, setShowLogin }) {
+export default function MapPage({ currentUser, setCurrentUser, currentUserId, setCurrentUserId, handleLogout, myStorage,showRegister,setShowRegister, showLogin, setShowLogin }) {
 
   const [pins, setPins] = useState([]);
   const [currentPlaceId, setCurrentPlaceId] = useState(null);
@@ -83,7 +83,7 @@ export default function MapPage({ currentUser, setCurrentUser, handleLogout, myS
 
   return (
     <div className="App">
-      <nav className="border-bottom border-secondary" style={{padding: '30px'}}>
+      <nav className="border-bottom border-secondary" style={{padding: '10px'}}>
         <div style={{fontSize:"30px"}}>
         <img style={{width:"70px",paddingLeft:"30px"}} src={logo}></img>
            <span style={{paddingLeft:"10px",color:"blue"}}>FRENTPRICE</span>
@@ -249,6 +249,7 @@ export default function MapPage({ currentUser, setCurrentUser, handleLogout, myS
             {showRegister && <Register setShowRegister={setShowRegister} />}
             {showLogin && (
               <Login
+                setCurrentUserId={setCurrentUserId}
                 setShowLogin={setShowLogin}
                 myStorage={myStorage}
                 setCurrentUser={setCurrentUser}

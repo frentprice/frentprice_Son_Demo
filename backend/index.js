@@ -5,6 +5,7 @@ const app = express();
 const userRoute = require("./routes/users");
 const pinRoute = require("./routes/pins");
 const favoriRoute = require("./routes/favori");
+const cors = require("cors");
 
 dotenv.config();
 

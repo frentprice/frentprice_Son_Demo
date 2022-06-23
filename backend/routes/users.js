@@ -14,6 +14,7 @@ router.post("/register", async (req, res) => {
 
 		const newUser = new User({
 			username: req.body.username,
+			surname: req.body.surname,
 			email: req.body.email,
 			password: hashedPassword,
 		});
@@ -47,5 +48,10 @@ router.post("/login", async (req, res) => {
 		res.status(500).json(err);
 	}
 });
+
+router.get("/:id",async(req,res)=>{
+	const user = await User.findById(req.params.id);
+	res.status(200).json({ _id: user._id, username: user.username, surname: user.surname , mail: user.email});
+})
 
 module.exports = router;

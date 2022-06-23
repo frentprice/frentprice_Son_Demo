@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React,{useEffect, useState} from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import { Button, Dropdown } from "react-bootstrap";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from "../../../assets/logo.jpeg";
+import axios from "axios";
 
 
 
@@ -17,9 +18,29 @@ const ColoredLine = ({ color }) => (
   />
 );
 
-export default function ProfilePage({currentUser, handleLogout}) {
+export default function ProfilePage({currentUser, currentUserId, handleLogout}) {
+ 
+  const [user, setUser] = useState({
+    _id: "",
+    username: "",
+    surname: "",
+    mail: ""
+  });
 
-  console.log(currentUser);
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const res = await axios.get(`/users/${currentUserId}`);
+        setUser(res.data);
+        console.log(res.data.surname)
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getUser();
+  }, []);
+  console.log(currentUserId);
+
 
   return (
     <div>
@@ -136,18 +157,20 @@ export default function ProfilePage({currentUser, handleLogout}) {
             <div className="mt-4">
               <label htmlFor="firstName" style={{ fontSize: "20px" }}>
                 Ad:
-               <span style={{color:"black"}}>{currentUser}</span>
+               <span style={{color:"black"}}><span>{user.username}</span></span>
               </label>
             </div>
             <div className="mt-5">
               <label htmlFor="lastName" style={{ fontSize: "20px" }}>
-                Soyad:
+                Soyad: 
               </label>
+              <span>{user.surname}</span>
             </div>
             <div className="mt-5">
               <label htmlFor="email" style={{ fontSize: "20px" }}>
                 Mail Adresi:
               </label>
+              <span>{user.mail}</span>
             </div>
           </div>
         </div>
