@@ -164,13 +164,13 @@ export default function ProfilePage({currentUser, currentUserId, handleLogout}) 
               <label htmlFor="lastName" style={{ fontSize: "20px" }}>
                 Soyad: 
               </label>
-              <span style={{color:"black"}}>{user.surname}</span>
+              <span>{user.surname}</span>
             </div>
             <div className="mt-5">
               <label htmlFor="email" style={{ fontSize: "20px" }}>
                 Mail Adresi:
               </label>
-              <span style={{color:"black"}}>{user.mail}</span>
+              <span>{user.mail}</span>
             </div>
           </div>
         </div>

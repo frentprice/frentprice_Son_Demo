@@ -45,12 +45,7 @@ const FavoriSchema = new mongoose.Schema(
 			type: Number,
 			required: true,
 		},
-		favori: {
-			type: Number,
-			required: true,
-            min:0,
-            max:1,
-		},
+		
 	},
 	{ timestamps: true }
 );
