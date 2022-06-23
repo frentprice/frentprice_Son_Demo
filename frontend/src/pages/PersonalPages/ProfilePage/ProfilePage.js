@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import { Button, Dropdown } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 
 
@@ -16,34 +16,25 @@ const ColoredLine = ({ color }) => (
   />
 );
 
-export default function ProfilePage() {
-  
+export default function ProfilePage({currentUser, handleLogout}) {
 
-  const myStorage = window.localStorage;
-  const [currentUser, setCurrentUser] = useState(
-    myStorage.getItem("currentUser")
-  );
-  const handleLogout = () => {
-    myStorage.removeItem("user");
-    setCurrentUser(null);
-  };
+  console.log(currentUser);
+
   return (
     <div>
       {currentUser ? (
         
         <div className="buttons">
-          <Dropdown
-          //   style={{ float: "right", }}
-          >
+          <Dropdown>
             <Dropdown.Toggle variant="primary" id="dropdown-basic">
-              {{currentUser}}
+              {currentUser}
             </Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item href="/profile">Profil</Dropdown.Item>
-              <Dropdown.Item href="/favori">Favorilerim</Dropdown.Item>
-              <Dropdown.Item href="/password">Şifre Değiştir</Dropdown.Item>
+              <Dropdown.Item as={Link} to="/profile">Profil</Dropdown.Item>
+              <Dropdown.Item as={Link} to="/favori">Favorilerim</Dropdown.Item>
+              <Dropdown.Item as={Link} to="/password">Şifre Değiştir</Dropdown.Item>
               <Dropdown.Divider />
-              <Dropdown.Item href="/" onClick={handleLogout}>
+              <Dropdown.Item as={Link} to="/" onClick={handleLogout}>
                 Log out
               </Dropdown.Item>
             </Dropdown.Menu>
@@ -71,9 +62,9 @@ export default function ProfilePage() {
         </div>
       ) }
 
-      <div class="container mt-5">
-        <div class="row">
-          <div class="col-md-4">
+      <div className="container mt-5">
+        <div className="row">
+          <div className="col-md-4">
             <div
               className="border border-light"
               style={{
@@ -120,7 +111,7 @@ export default function ProfilePage() {
           </div>
           </div>
         
-        <div class="col-md-8">
+        <div className="col-md-8">
           <h2 style={{ textAlign: "center", fontWeight: "bold" }}>
             Üyelik Bigileri
           </h2>

@@ -19,7 +19,7 @@ const ColoredLine = ({ color }) => (
   );
 
 
-export default function PasswordPage() {
+export default function PasswordPage({currentUser, handleLogout}) {
     const validate = Yup.object({
         newPassword: Yup.string()
           .min(8, "Şifre en az 8 karakterden oluşmalı")

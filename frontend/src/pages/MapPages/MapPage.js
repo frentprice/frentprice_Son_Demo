@@ -8,12 +8,13 @@ import Register from "../../components/Register";
 import Login from "../../components/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Dropdown } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-export default function MapPage() {
-  const myStorage = window.localStorage;
-  const [currentUser, setCurrentUser] = useState(
-    myStorage.getItem("currentUser")
-  );
+export default function MapPage({currentUser,setCurrentUser,handleLogout, myStorage}) {
+  // const myStorage = window.localStorage;
+  // const [currentUser, setCurrentUser] = useState(
+  //   myStorage.getItem("currentUser")
+  // );
   const [pins, setPins] = useState([]);
   const [currentPlaceId, setCurrentPlaceId] = useState(null);
   const [newPlace, setNewPlace] = useState(null);
@@ -81,36 +82,35 @@ export default function MapPage() {
     }
   };
 
-  const handleLogout = () => {
-    myStorage.removeItem("user");
-    setCurrentUser(null);
-  };
+  // const handleLogout = () => {
+  //   myStorage.removeItem("user");
+  //   setCurrentUser(null);
+  // };
+  console.log(currentUser);
 
   return (
-    <div className="App" s>
+    <div className="App">
       {currentUser ? (
         <div className="buttons">
-          <Dropdown
-          //   style={{ float: "right", }}
-          >
+          <Dropdown>
             <Dropdown.Toggle variant="primary" id="dropdown-basic">
               {currentUser}
             </Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item href="/profile">Profil</Dropdown.Item>
-              <Dropdown.Item href="/favori">Favorilerim</Dropdown.Item>
-              <Dropdown.Item href="/password">Şifre Değiştir</Dropdown.Item>
+              <Dropdown.Item as={Link} to="/profile">
+                Profil
+                </Dropdown.Item>
+              <Dropdown.Item as={Link} to="/favori">Favorilerim</Dropdown.Item>
+              <Dropdown.Item as={Link} to="/password">Şifre Değiştir</Dropdown.Item>
               <Dropdown.Divider />
-              <Dropdown.Item href="/" onClick={handleLogout}>
+              <Dropdown.Item as={Link} to="/" onClick={handleLogout}>
                 Log out
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </div>
       ) : (
-        // <button className="button logout" onClick={handleLogout}>
-        // 	Log out
-        // </button>
+
         <div className="buttons">
           <button className="button login" onClick={() => setShowLogin(true)}>
             Login

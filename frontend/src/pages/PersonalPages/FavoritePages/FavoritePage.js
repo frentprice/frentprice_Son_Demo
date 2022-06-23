@@ -14,7 +14,7 @@ const ColoredLine = ({ color }) => (
   />
 );
 
-export default function FavoritePage() {
+export default function FavoritePage({currentUser, handleLogout}) {
   return (
     <div class="container mt-5">
       <div class="row">
