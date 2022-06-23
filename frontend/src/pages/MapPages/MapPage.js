@@ -106,8 +106,8 @@ export default function MapPage({ currentUser, setCurrentUser, currentUserId, se
     <div className="App">
       <nav className="border-bottom border-secondary" style={{padding: '10px'}}>
         <div style={{fontSize:"30px"}}>
-        <img style={{width:"70px",paddingLeft:"30px"}} src={logo}></img>
-           <span style={{paddingLeft:"10px",color:"blue"}}>FRENTPRICE</span>
+        <img className="rounded"style={{width:"70px",paddingLeft:"30px"}} src={logo}></img>
+           <span style={{color:"blue"}}>FRENTPRICE</span>
         </div>
       {currentUser ? (
         <div className="buttons">
@@ -192,6 +192,7 @@ export default function MapPage({ currentUser, setCurrentUser, currentUserId, se
           mapStyle="mapbox://styles/mapbox/streets-v9"
           onDblClick={handleAddClick}
           transitionDuration="200"
+          //style={{ float: "right", height: "97%", width: "50%" }}
         >
           {pins.map((p) => (
             <>

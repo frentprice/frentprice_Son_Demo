@@ -132,11 +132,11 @@ export default function PasswordPage({currentUser, handleLogout}) {
                 <div className="border border-dark mt-1 " style={{width:"60%",height:"70%",paddingLeft:"16%",paddingTop:"5%",marginLeft:"20%"}}>
 
                 <Form>
-                <div  className='mt-3' style={{width:"70%",verticalAlign:"middle",float:"left"}}>
-                {/* <label style={{widht:"auto",float:"left"}}>Mevcut Şifre</label> */}
+                {/* <div  className='mt-3' style={{width:"70%",verticalAlign:"middle",float:"left"}}>
+                 <label style={{widht:"auto",float:"left"}}>Mevcut Şifre</label> 
                 <TextField label="Mevcut Şifre" name="password" type="password" disabled/>
-                </div>
-                <div className='mt-4' style={{width:"70%"}}>
+                </div> */}
+                <div className='mt-3' style={{width:"70%"}}>
                 <TextField label="Şifre" name="newPassword" type="password" placeholder="Şifre" />
                 </div>
                 <div className='mt-4' style={{width:"70%"}}>
