@@ -4,7 +4,7 @@ import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
-import logo from "../../assets/logo.jpeg";
+import logo from "../../../assets/logo.jpeg";
 
 const ColoredLine = ({ color }) => (
   <hr

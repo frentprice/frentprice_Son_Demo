@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import { Button, Dropdown } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
-import logo from "../../assets/logo.jpeg";
+import logo from "../../../assets/logo.jpeg";
 
 
 

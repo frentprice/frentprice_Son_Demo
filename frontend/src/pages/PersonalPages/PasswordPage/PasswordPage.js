@@ -7,7 +7,7 @@ import * as Yup from "yup";
 import { Formik, Form } from "formik";
 import { Link } from "react-router-dom";
 import { Dropdown } from 'react-bootstrap';
-import logo from "../../assets/logo.jpeg";
+import logo from "../../../assets/logo.jpeg";
 
 
 const ColoredLine = ({ color }) => (

@@ -9,6 +9,7 @@ import Login from "../../components/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Dropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import logo from '../../assets/logo.jpeg';
 
 export default function MapPage({ currentUser, setCurrentUser, handleLogout, myStorage,showRegister,setShowRegister, showLogin, setShowLogin }) {
 
