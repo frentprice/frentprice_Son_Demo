@@ -11,7 +11,6 @@ label {
 	width: max-content;
 	color: tomato;
 	font-size: 20px;
-	border-bottom: 0.5px solid tomato;
 	margin: 3px 0;
 }
 
@@ -36,7 +35,7 @@ form {
 	height: 500px;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between !important;
+	/*justify-content: space-between !important;*/
 }
 
 input,
