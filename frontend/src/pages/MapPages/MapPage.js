@@ -84,6 +84,10 @@ export default function MapPage({ currentUser, setCurrentUser, handleLogout, myS
   return (
     <div className="App">
       <nav className="border-bottom border-secondary" style={{padding: '30px'}}>
+        <div style={{fontSize:"30px"}}>
+        <img style={{width:"70px",paddingLeft:"30px"}} src={logo}></img>
+           <span style={{paddingLeft:"10px",color:"blue"}}>FRENTPRICE</span>
+        </div>
       {currentUser ? (
         <div className="buttons">
           <Dropdown>
