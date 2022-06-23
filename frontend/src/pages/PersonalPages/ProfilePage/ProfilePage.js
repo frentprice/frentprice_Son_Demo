@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import { Button, Dropdown } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
+import logo from "../../assets/logo.jpeg";
 
 
 
@@ -22,6 +23,13 @@ export default function ProfilePage({currentUser, handleLogout}) {
 
   return (
     <div>
+      <nav className="border-bottom border-secondary" style={{padding: '10px'}}>
+      <div style={{fontSize:"30px"}}>
+        <a href="/" style={{textDecoration:"none"}}>
+        <img style={{width:"70px",paddingLeft:"30px"}} src={logo}></img>
+           <span style={{paddingLeft:"10px"}}>FRENTPRICE</span>
+           </a>
+        </div>
       {currentUser ? (
         
         <div className="buttons">
@@ -43,9 +51,11 @@ export default function ProfilePage({currentUser, handleLogout}) {
       ) : (
         
         <div className="buttons">
-          <Dropdown>
+          <Dropdown
+          //   style={{ float: "right", }}
+          >
             <Dropdown.Toggle variant="primary" id="dropdown-basic">
-              {currentUser}
+    
             </Dropdown.Toggle>
             <Dropdown.Menu>
               <Dropdown.Item href="/profile">Profil</Dropdown.Item>
@@ -59,7 +69,7 @@ export default function ProfilePage({currentUser, handleLogout}) {
           </Dropdown>
         </div>
       ) }
-
+</nav>
       <div className="container mt-5">
         <div className="row">
           <div className="col-md-4">
@@ -75,14 +85,14 @@ export default function ProfilePage({currentUser, handleLogout}) {
               <div>
               <div>
                 <FontAwesomeIcon icon={faUserCircle} size={"5x"} />
-                <span>Kullanıcı Adı Soyadı</span>
+                <span style={{position:"fixed",top:"170px",left:"240px"}}>{currentUser}</span>
                 <div>
                   <ColoredLine color="#000" />
                 </div>
               </div>
             </div>
             <div className="mt-5">
-              <Button style={{ width: "60%" }}>
+              <Button style={{ width: "60%" ,marginLeft:"17%"}}>
                 <span style={{ color: "black" }}>Profil</span>
               </Button>
             </div>
@@ -90,7 +100,7 @@ export default function ProfilePage({currentUser, handleLogout}) {
               <Link to="/favori">
                 <Button
                   variant="outline-primary"
-                  style={{ width: "60%", borderColor: "black" }}
+                  style={{ width: "60%", borderColor: "black" ,marginLeft:"17%"}}
                 >
                   <span style={{ color: "black" }}>Favorilerim</span>
                 </Button>
@@ -100,7 +110,7 @@ export default function ProfilePage({currentUser, handleLogout}) {
               <Link to="/password">
                 <Button
                   variant="outline-primary"
-                  style={{ width: "60%", borderColor: "black" }}
+                  style={{ width: "60%", borderColor: "black" ,marginLeft:"17%"}}
                 >
                   <span style={{ color: "black" }}>Şifre Değiştir</span>
                 </Button>
@@ -125,18 +135,18 @@ export default function ProfilePage({currentUser, handleLogout}) {
           >
             <div className="mt-4">
               <label htmlFor="firstName" style={{ fontSize: "20px" }}>
-                Ad
-                {currentUser}
+                Ad:
+               <span style={{color:"black"}}>{currentUser}</span>
               </label>
             </div>
             <div className="mt-5">
               <label htmlFor="lastName" style={{ fontSize: "20px" }}>
-                Soyad
+                Soyad:
               </label>
             </div>
             <div className="mt-5">
               <label htmlFor="email" style={{ fontSize: "20px" }}>
-                Mail Adresi
+                Mail Adresi:
               </label>
             </div>
           </div>
@@ -146,3 +156,4 @@ export default function ProfilePage({currentUser, handleLogout}) {
     </div>
   );
 }
+
