@@ -10,11 +10,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Dropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-export default function MapPage({currentUser,setCurrentUser,handleLogout, myStorage}) {
-  // const myStorage = window.localStorage;
-  // const [currentUser, setCurrentUser] = useState(
-  //   myStorage.getItem("currentUser")
-  // );
+export default function MapPage({ currentUser, setCurrentUser, handleLogout, myStorage }) {
+
   const [pins, setPins] = useState([]);
   const [currentPlaceId, setCurrentPlaceId] = useState(null);
   const [newPlace, setNewPlace] = useState(null);
@@ -27,7 +24,7 @@ export default function MapPage({currentUser,setCurrentUser,handleLogout, myStor
   const [showRegister, setShowRegister] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [viewport, setViewport] = useState({
-    width: "50vw",
+    width: "56vw",
     height: "100vh",
     latitude: 40.23,
     longitude: 28.8428,
@@ -82,14 +79,11 @@ export default function MapPage({currentUser,setCurrentUser,handleLogout, myStor
     }
   };
 
-  // const handleLogout = () => {
-  //   myStorage.removeItem("user");
-  //   setCurrentUser(null);
-  // };
   console.log(currentUser);
 
   return (
     <div className="App">
+      <nav className="border-bottom border-secondary" style={{padding: '30px'}}>
       {currentUser ? (
         <div className="buttons">
           <Dropdown>
@@ -99,7 +93,7 @@ export default function MapPage({currentUser,setCurrentUser,handleLogout, myStor
             <Dropdown.Menu>
               <Dropdown.Item as={Link} to="/profile">
                 Profil
-                </Dropdown.Item>
+              </Dropdown.Item>
               <Dropdown.Item as={Link} to="/favori">Favorilerim</Dropdown.Item>
               <Dropdown.Item as={Link} to="/password">Şifre Değiştir</Dropdown.Item>
               <Dropdown.Divider />
@@ -122,9 +116,12 @@ export default function MapPage({currentUser,setCurrentUser,handleLogout, myStor
             Register
           </button>
         </div>
-      )}
-      <div style={{ height: "3%", marginTop: "3%" }}>
-        <div style={{ position: "absolute", height: "100%" }}>
+      )
+      }
+      </nav>
+     
+      <main className="row">
+        <aside className="col-5 d-flex justify-content-center" style={{ height: "100%" }}>
           {pins.map((p) => (
             <>
               {p._id === currentPlaceId && (
@@ -137,7 +134,7 @@ export default function MapPage({currentUser,setCurrentUser,handleLogout, myStor
                   style={{ float: "left", position: "absolute" }}
                   onClose={() => setCurrentPlaceId(null)}
                 >
-                  <div className="card">
+                  <div className="card w-100 border-primary ms-5 mt-4 px-5">
                     <label>Sokak</label>
                     <h4 className="place">{p.title}</h4>
                     <label>3+1</label>
@@ -162,8 +159,8 @@ export default function MapPage({currentUser,setCurrentUser,handleLogout, myStor
               )}
             </>
           ))}
-        </div>
-
+        </aside>
+        <section className="col-7">
         <ReactMapGL
           {...viewport}
           mapboxApiAccessToken={process.env.REACT_APP_MAPBOX}
@@ -171,7 +168,6 @@ export default function MapPage({currentUser,setCurrentUser,handleLogout, myStor
           mapStyle="mapbox://styles/mapbox/streets-v9"
           onDblClick={handleAddClick}
           transitionDuration="200"
-          style={{ float: "right", height: "97%", width: "50%" }}
         >
           {pins.map((p) => (
             <>
@@ -190,33 +186,6 @@ export default function MapPage({currentUser,setCurrentUser,handleLogout, myStor
                   onClick={() => handleMarkerClick(p._id, p.lat, p.long)}
                 />
               </Marker>
-
-              {/* {p._id === currentPlaceId && (
-							<Popup
-								latitude={p.lat}
-								longitude={p.long}
-								closeButton={true}
-								closeOnClick={false}
-								anchor="left"
-								onClose={() => setCurrentPlaceId(null)}
-							>
-								<div className="card">
-									<label>Place</label>
-									<h4 className="place">{p.title}</h4>
-									<label>review</label>
-									<p className="desc">{p.desc}</p>
-									<label>Rating</label>
-									<div className="stars">
-										{Array(p.rating).fill(<Star className="star" />)}
-									</div>
-									<label>Information</label>
-									<span className="username">
-										Created by <b>{p.username}</b>
-									</span>
-									<span className="date">{format(p.createdAt)}</span>
-								</div>
-							</Popup>
-						)} */}
             </>
           ))}
 
@@ -271,31 +240,7 @@ export default function MapPage({currentUser,setCurrentUser,handleLogout, myStor
               </div>
             </Popup>
           )}
-          {/* {currentUser ? (
-					<button className="button logout" onClick={handleLogout}>
-						Log out
-					</button>
-				) : (
-					<div className="buttons">
-						<button className="button login" onClick={() => setShowLogin(true)}>
-							Login
-						</button>
-						<button
-							className="button register"
-							onClick={() => setShowRegister(true)}
-						>
-							Register
-						</button>
-					</div>
-				)}
-				{showRegister && <Register setShowRegister={setShowRegister} />}
-				{showLogin && (
-					<Login
-						setShowLogin={setShowLogin}
-						myStorage={myStorage}
-						setCurrentUser={setCurrentUser}
-					/>
-				)} */}
+       
           <div style={{ position: "relative", marginTop: "30%" }}>
             {showRegister && <Register setShowRegister={setShowRegister} />}
             {showLogin && (
@@ -307,7 +252,9 @@ export default function MapPage({currentUser,setCurrentUser,handleLogout, myStor
             )}
           </div>
         </ReactMapGL>
-      </div>
+        </section>
+        
+      </main>
     </div>
   );
 }

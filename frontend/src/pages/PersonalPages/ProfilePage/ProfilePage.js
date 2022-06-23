@@ -43,9 +43,7 @@ export default function ProfilePage({currentUser, handleLogout}) {
       ) : (
         
         <div className="buttons">
-          <Dropdown
-          //   style={{ float: "right", }}
-          >
+          <Dropdown>
             <Dropdown.Toggle variant="primary" id="dropdown-basic">
               {currentUser}
             </Dropdown.Toggle>
