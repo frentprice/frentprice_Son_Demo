@@ -21,7 +21,7 @@ function HomePage() {
                         </Link>
                     </div>
                 </main>
-                <footer className="position-absolute bottom-0 start-50 translate-middle-x text-dark-50">
+                <footer className="align-items-end text-dark-50">
                    <Footer/>
                 </footer>
             </div>
