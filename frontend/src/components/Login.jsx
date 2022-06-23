@@ -33,8 +33,8 @@ const Login = ({ setShowLogin, myStorage, setCurrentUser }) => {
 				FRENTPRICE
 			</div>
 			<form onSubmit={handleSubmit}>
-				<input type="text" placeholder="username" ref={nameRef} />
-				<input type="password" placeholder="password" ref={passwordRef} />
+				<input className="mt-2" type="text" placeholder="username" ref={nameRef} />
+				<input className="mt-5"type="password" placeholder="password" ref={passwordRef} />
 				<button className="registerBtn">Login</button>
 
 				{error && <span className="failure">Hatali giriş yaptiniz!</span>}

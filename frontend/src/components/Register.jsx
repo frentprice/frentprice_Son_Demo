@@ -35,10 +35,10 @@ const Register = ({ setShowRegister }) => {
 				FRENTPRICE
 			</div>
 			<form onSubmit={handleSubmit}>
-				<input type="text" placeholder="username" ref={nameRef} />
-				<input type="email" placeholder="email" ref={emailRef} />
-				<input type="password" placeholder="password" ref={passwordRef} />
-				<button className="registerBtn">Register</button>
+				<input className="mt-2" type="text" placeholder="username" ref={nameRef} />
+				<input className="mt-2" type="email" placeholder="email" ref={emailRef} />
+				<input className="mt-2" type="password" placeholder="password" ref={passwordRef} />
+				<button className="registerBtn mt-3">Register</button>
 				{success && (
 					<span className="success">Kayıt Oldunuz!</span>
 				)}
