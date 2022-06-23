@@ -174,7 +174,7 @@ export default function MapPage({ currentUser, setCurrentUser, currentUserId, se
                     <div className="stars">
                       {Array(p.rating).fill(<Star className="star" />)}
                     </div>
-                    <label>Favorite</label>
+                    <label>Favori</label>
                     <Button style={{background: 'transparent', border: 'none', width: '75px'}} onClick={() => addFavorite(p)}>
                       <FcLike style={{fontSize: '50px'}}/>
                     </Button>

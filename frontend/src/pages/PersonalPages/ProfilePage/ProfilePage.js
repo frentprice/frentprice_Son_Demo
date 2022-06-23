@@ -46,7 +46,7 @@ export default function ProfilePage({currentUser, currentUserId, handleLogout}) 
     <div>
       <nav className="border-bottom border-secondary" style={{padding: '10px'}}>
       <div style={{fontSize:"30px"}}>
-        <a href="/" style={{textDecoration:"none"}}>
+        <a href="/map" style={{textDecoration:"none"}}>
         <img style={{width:"70px",paddingLeft:"30px"}} src={logo}></img>
            <span style={{paddingLeft:"10px"}}>FRENTPRICE</span>
            </a>

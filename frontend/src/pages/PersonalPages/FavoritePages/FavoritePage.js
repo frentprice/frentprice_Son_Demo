@@ -42,7 +42,7 @@ export default function FavoritePage({ currentUser, handleLogout }) {
     <div>
       <nav className="border-bottom border-secondary" style={{ padding: '10px' }}>
         <div style={{ fontSize: "30px" }}>
-          <a href="/" style={{ textDecoration: "none" }}>
+          <a href="/map" style={{ textDecoration: "none" }}>
             <img style={{ width: "70px", paddingLeft: "30px" }} src={logo}></img>
             <span style={{ paddingLeft: "10px" }}>FRENTPRICE</span>
           </a>
@@ -93,7 +93,7 @@ export default function FavoritePage({ currentUser, handleLogout }) {
             <div
               className="border border-light"
               style={{
-                height: "75%",
+                height: "100%",
                 width: "90%",
                 backgroundColor: "#e9e9e9",
                 padding: "6%",

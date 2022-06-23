@@ -35,7 +35,7 @@ const Login = ({ setCurrentUserId, setShowLogin, myStorage, setCurrentUser }) =>
 				FRENTPRICE
 			</div>
 			<form onSubmit={handleSubmit}>
-				<input className="mt-2" type="text" placeholder="username" ref={nameRef} />
+				<input className="mt-2" type="text" placeholder="name" ref={nameRef} />
 				<input className="mt-5"type="password" placeholder="password" ref={passwordRef} />
 				<button className="registerBtn">Login</button>
 

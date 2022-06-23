@@ -7,6 +7,7 @@ const Register = ({ setShowRegister }) => {
 	const [success, setSuccess] = useState(false);
 	const [error, setError] = useState(false);
 	const nameRef = useRef();
+	const surnameRef = useRef();
 	const emailRef = useRef();
 	const passwordRef = useRef();
 
@@ -14,6 +15,7 @@ const Register = ({ setShowRegister }) => {
 		e.preventDefault();
 		const newUser = {
 			username: nameRef.current.value,
+			surname: surnameRef.current.value,
 			email: emailRef.current.value,
 			password: passwordRef.current.value,
 		};
@@ -35,7 +37,8 @@ const Register = ({ setShowRegister }) => {
 				FRENTPRICE
 			</div>
 			<form onSubmit={handleSubmit}>
-				<input className="mt-2" type="text" placeholder="username" ref={nameRef} />
+				<input className="mt-2" type="text" placeholder="name" ref={nameRef} />
+				<input className="mt-2" type="text" placeholder="surname" ref={surnameRef} />
 				<input className="mt-2" type="email" placeholder="email" ref={emailRef} />
 				<input className="mt-2" type="password" placeholder="password" ref={passwordRef} />
 				<button className="registerBtn mt-3">Register</button>
