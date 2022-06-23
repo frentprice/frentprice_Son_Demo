@@ -106,7 +106,7 @@ export default function ProfilePage({currentUser, currentUserId, handleLogout}) 
               <div>
               <div>
                 <FontAwesomeIcon icon={faUserCircle} size={"5x"} />
-                <span style={{position:"fixed",top:"170px",left:"240px"}}>{currentUser}</span>
+                <span style={{position:"fixed",top:"170px",left:"270px"}}>{user.username +" " + user.surname}</span>
                 <div>
                   <ColoredLine color="#000" />
                 </div>
@@ -164,13 +164,13 @@ export default function ProfilePage({currentUser, currentUserId, handleLogout}) 
               <label htmlFor="lastName" style={{ fontSize: "20px" }}>
                 Soyad: 
               </label>
-              <span>{user.surname}</span>
+              <span style={{color:"black"}}>{user.surname}</span>
             </div>
             <div className="mt-5">
               <label htmlFor="email" style={{ fontSize: "20px" }}>
                 Mail Adresi:
               </label>
-              <span>{user.mail}</span>
+              <span style={{color:"black"}}>{user.mail}</span>
             </div>
           </div>
         </div>

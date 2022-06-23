@@ -8,7 +8,7 @@ import logo from "../../assets/logo.jpeg";
 
 function Footer1() {
   return (
-    <div className='main-footer ' style={{marginTop:"200px"}}>
+    <div className='main-footer ' style={{marginTop:"370px"}}>
         <div className='container mt-5' style={{width:"100%"}}>
             <div className='row'>
                 
@@ -17,7 +17,7 @@ function Footer1() {
                 </div>
                 
                 <div className='col-md-2 mt-5'style={{paddingLeft:"2%"}}>
-                <a href='https://github.com/frentprice/frentprice_Son_Demo' target={"_blank"}><img style={{width:"30%"}} src={github_icon} ></img></a> 
+                <a href='https://github.com/frentprice/frentprice_Son_Demo' target={"_blank"}><img style={{width:"30%"}} className="rounded-circle" src={github_icon} ></img></a> 
                 </div>
                 <div className='col-md-2 mt-5' style={{paddingLeft:"4%"}}>
                 <span style={{fontSize:"18px"}}>Bizi takip edin!</span>
