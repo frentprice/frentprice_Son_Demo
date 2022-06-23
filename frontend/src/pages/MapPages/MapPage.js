@@ -10,7 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Dropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-export default function MapPage({ currentUser, setCurrentUser, handleLogout, myStorage }) {
+export default function MapPage({ currentUser, setCurrentUser, handleLogout, myStorage,showRegister,setShowRegister, showLogin, setShowLogin }) {
 
   const [pins, setPins] = useState([]);
   const [currentPlaceId, setCurrentPlaceId] = useState(null);
@@ -21,8 +21,7 @@ export default function MapPage({ currentUser, setCurrentUser, handleLogout, myS
   const [desc1, setDesc1] = useState(null);
   const [desc0, setDesc0] = useState(null);
   const [rating, setRating] = useState(null);
-  const [showRegister, setShowRegister] = useState(false);
-  const [showLogin, setShowLogin] = useState(false);
+ 
   const [viewport, setViewport] = useState({
     width: "56vw",
     height: "100vh",
