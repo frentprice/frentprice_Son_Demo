@@ -80,7 +80,7 @@ export default function FavoritePage({currentUser, handleLogout}) {
           >
             <div>
               <FontAwesomeIcon icon={faUserCircle} size={"5x"} />
-              <span style={{position:"fixed",top:"170px",left:"240px"}}> {currentUser} </span>
+              <span style={{position:"fixed",top:"170px",left:"270px"}}> {currentUser} </span>
               <div>
                 <ColoredLine color="#000" />
               </div>

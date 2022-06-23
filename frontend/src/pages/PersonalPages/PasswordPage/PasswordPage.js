@@ -96,7 +96,7 @@ export default function PasswordPage({currentUser, handleLogout}) {
             <div className="border border-light" style={{height:"80%",width:"90%",backgroundColor:"#e9e9e9",padding:"6%"}} >
           <div>
           <FontAwesomeIcon icon={ faUserCircle} size={"5x"}/>
-          <span style={{position:"fixed",top:"170px",left:"240px"}}> {currentUser} </span>
+          <span style={{position:"fixed",top:"170px",left:"270px"}}> {currentUser} </span>
           <div>
       <ColoredLine color="#000"/>
     </div>
