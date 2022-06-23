@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { Dropdown } from "react-bootstrap";
+import logo from "../../assets/logo.jpeg";
 
 const ColoredLine = ({ color }) => (
   <hr
@@ -16,6 +18,54 @@ const ColoredLine = ({ color }) => (
 
 export default function FavoritePage({currentUser, handleLogout}) {
   return (
+    <div>
+       <nav className="border-bottom border-secondary" style={{padding: '10px'}}>
+        <div style={{fontSize:"30px"}}>
+        <a href="/" style={{textDecoration:"none"}}>
+        <img style={{width:"70px",paddingLeft:"30px"}} src={logo}></img>
+           <span style={{paddingLeft:"10px"}}>FRENTPRICE</span>
+           </a>
+        </div>
+      {currentUser ? (
+        
+        <div className="buttons">
+          <Dropdown>
+            <Dropdown.Toggle variant="primary" id="dropdown-basic">
+              {currentUser}
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item as={Link} to="/profile">Profil</Dropdown.Item>
+              <Dropdown.Item as={Link} to="/favori">Favorilerim</Dropdown.Item>
+              <Dropdown.Item as={Link} to="/password">Şifre Değiştir</Dropdown.Item>
+              <Dropdown.Divider />
+              <Dropdown.Item as={Link} to="/" onClick={handleLogout}>
+                Log out
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </div>
+      ) : (
+        
+        <div className="buttons">
+          <Dropdown
+          //   style={{ float: "right", }}
+          >
+            <Dropdown.Toggle variant="primary" id="dropdown-basic">
+    
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item href="/profile">Profil</Dropdown.Item>
+              <Dropdown.Item href="/favori">Favorilerim</Dropdown.Item>
+              <Dropdown.Item href="/password">Şifre Değiştir</Dropdown.Item>
+              <Dropdown.Divider />
+              <Dropdown.Item href="/" onClick={handleLogout}>
+                Log out
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </div>
+      ) }
+      </nav>
     <div class="container mt-5">
       <div class="row">
         <div class="col-md-4">
@@ -30,7 +80,7 @@ export default function FavoritePage({currentUser, handleLogout}) {
           >
             <div>
               <FontAwesomeIcon icon={faUserCircle} size={"5x"} />
-              <span>Kullanıcı Adı Soyadı</span>
+              <span style={{position:"fixed",top:"170px",left:"240px"}}> {currentUser} </span>
               <div>
                 <ColoredLine color="#000" />
               </div>
@@ -39,14 +89,14 @@ export default function FavoritePage({currentUser, handleLogout}) {
               <Link to="/profile">
                 <Button
                   variant="outline-primary"
-                  style={{ width: "60%", borderColor: "black" }}
+                  style={{ width: "60%", borderColor: "black" ,marginLeft:"17%" }}
                 >
                   <span style={{ color: "black" }}>Profil</span>
                 </Button>
               </Link>
             </div>
             <div className="mt-5">
-              <Button style={{ width: "60%" }}>
+              <Button style={{ width: "60%" ,marginLeft:"17%" }}>
                 <span style={{ color: "black", borderColor: "black" }}>
                   Favorilerim
                 </span>
@@ -56,7 +106,7 @@ export default function FavoritePage({currentUser, handleLogout}) {
               <Link to="/password">
                 <Button
                   variant="outline-primary"
-                  style={{ width: "60%", borderColor: "black" }}
+                  style={{ width: "60%", borderColor: "black",marginLeft:"17%"  }}
                 >
                   <span style={{ color: "black" }}>Şifre Değiştir</span>
                 </Button>
@@ -78,22 +128,12 @@ export default function FavoritePage({currentUser, handleLogout}) {
               marginLeft: "5%",
             }}
           >
-            <div class="card text-center">
-  <div class="card-header">
-    Featured
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    
-  </div>
-  <div class="card-footer text-muted">
-    2 days ago
-  </div>
-</div>
+            
           </div>
         </div>
       </div>
     </div>
+    </div>
+    
   );
 }
