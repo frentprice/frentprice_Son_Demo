@@ -22,14 +22,14 @@ const ColoredLine = ({ color }) => (
 
 
 export default function PasswordPage({currentUser, handleLogout}) {
-    const validate = Yup.object({
-        newPassword: Yup.string()
-          .min(8, "Şifre en az 8 karakterden oluşmalı")
-          .required("Zorunlu"),
-        confirmNewPassword: Yup.string()
-          .oneOf([Yup.ref("password"), null], "Şifreler aynı olmalı")
-          .required("Zorunlu"),
-      });
+    // const validate = Yup.object({
+    //     newPassword: Yup.string()
+    //       .min(8, "Şifre en az 8 karakterden oluşmalı")
+    //       .required("Zorunlu"),
+    //     confirmNewPassword: Yup.string()
+    //       .oneOf([Yup.ref("password"), null], "Şifreler aynı olmalı")
+    //       .required("Zorunlu"),
+    //   });
   return (
     <div>
        <nav className="border-bottom border-secondary" style={{padding: '10px'}}>
@@ -86,7 +86,7 @@ export default function PasswordPage({currentUser, handleLogout}) {
         newPassword: "",
         confirmNewPassword: "",
       }}
-      validationSchema={validate}
+      // validationSchema={validate}
     >
      
       {(formik) => (

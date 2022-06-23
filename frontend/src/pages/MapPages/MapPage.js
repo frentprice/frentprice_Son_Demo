@@ -7,11 +7,12 @@ import { format } from "timeago.js";
 import Register from "../../components/Register";
 import Login from "../../components/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Dropdown } from "react-bootstrap";
+import { Button, Dropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logo from '../../assets/logo.jpeg';
+import { FcLike } from "react-icons/fc";
 
-export default function MapPage({ currentUser, setCurrentUser, handleLogout, myStorage,showRegister,setShowRegister, showLogin, setShowLogin }) {
+export default function MapPage({ currentUser, setCurrentUser, currentUserId, setCurrentUserId, handleLogout, myStorage,showRegister,setShowRegister, showLogin, setShowLogin }) {
 
   const [pins, setPins] = useState([]);
   const [currentPlaceId, setCurrentPlaceId] = useState(null);
@@ -79,11 +80,31 @@ export default function MapPage({ currentUser, setCurrentUser, handleLogout, myS
     }
   };
 
+  const addFavorite = async(p) => {
+    const favori = {
+      username: currentUser,
+      title: p.title,
+      desc3 : p.desc3,
+      desc2: p.desc2,
+      desc1:  p.desc1,
+      desc0 : p.desc0,
+      rating: p.rating,
+      lat :p.lat,
+      long : p.long
+  }
+    try {
+			const res = await axios.post("/favori/favori", favori);
+			console.log(res.data);
+		} catch (err) {
+      console.log(err);
+		}
+  };
+
   console.log(currentUser);
 
   return (
     <div className="App">
-      <nav className="border-bottom border-secondary" style={{padding: '30px'}}>
+      <nav className="border-bottom border-secondary" style={{padding: '10px'}}>
         <div style={{fontSize:"30px"}}>
         <img style={{width:"70px",paddingLeft:"30px"}} src={logo}></img>
            <span style={{paddingLeft:"10px",color:"blue"}}>FRENTPRICE</span>
@@ -153,11 +174,10 @@ export default function MapPage({ currentUser, setCurrentUser, handleLogout, myS
                     <div className="stars">
                       {Array(p.rating).fill(<Star className="star" />)}
                     </div>
-                    <label>Information</label>
-                    <span className="username">
-                      Created by <b>{p.username}</b>
-                    </span>
-                    <span className="date">{format(p.createdAt)}</span>
+                    <label>Favorite</label>
+                    <Button style={{background: 'transparent', border: 'none', width: '75px'}} onClick={() => addFavorite(p)}>
+                      <FcLike style={{fontSize: '50px'}}/>
+                    </Button>
                   </div>
                 </div>
               )}
@@ -249,6 +269,7 @@ export default function MapPage({ currentUser, setCurrentUser, handleLogout, myS
             {showRegister && <Register setShowRegister={setShowRegister} />}
             {showLogin && (
               <Login
+                setCurrentUserId={setCurrentUserId}
                 setShowLogin={setShowLogin}
                 myStorage={myStorage}
                 setCurrentUser={setCurrentUser}

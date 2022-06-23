@@ -16,6 +16,9 @@ function App() {
   const [currentUser, setCurrentUser] = useState(
     myStorage.getItem("currentUser")
   );
+  
+  const [currentUserId , setCurrentUserId] = useState();
+
   const handleLogout = () => {
     myStorage.removeItem("user");
     setCurrentUser(null);
@@ -26,8 +29,8 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/" element={<HomePage/>}/>
-          <Route path="/map" element={<MapPage currentUser={currentUser} setCurrentUser={setCurrentUser} handleLogout={handleLogout} myStorage={myStorage} showRegister={showRegister} setShowRegister={setShowRegister} showLogin={showLogin} setShowLogin={setShowLogin} />} />
-          <Route path="/profile" element={<ProfilePage currentUser={currentUser} handleLogout={handleLogout}/>} />
+          <Route path="/map" element={<MapPage currentUser={currentUser} setCurrentUser={setCurrentUser} currentUserId={currentUserId} setCurrentUserId={setCurrentUserId} handleLogout={handleLogout} myStorage={myStorage} showRegister={showRegister} setShowRegister={setShowRegister} showLogin={showLogin} setShowLogin={setShowLogin} />} />
+          <Route path="/profile" element={<ProfilePage currentUser={currentUser} currentUserId={currentUserId} handleLogout={handleLogout}/>} />
           <Route path="/favori" element={<FavoritePage currentUser={currentUser} handleLogout={handleLogout}/>} />
           <Route path="/password" element={<PasswordPage currentUser={currentUser} handleLogout={handleLogout}/>} />
         </Routes>
